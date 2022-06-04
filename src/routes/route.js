@@ -9,16 +9,7 @@ router.get('/test-me', function (req, res) {
 router.get('/hello', function (req, res) {  
       res.send('My second ever api!')
 });
-// pritesh sir assignment 1 question no.1
-router.get('/test-me2', function (req, res) {
-        
-       res.send({data:missingNumber})
-});
-// pritesh sir assignment 1 question no.2
-router.get('/test-me3', function (req, res) {
-        
-     res.send({data:missingNumber})
-});
+
 //Assignment 2 by Pritesh Sir
 router.post('/test-me4', function (req, res) {
    let player = [{
