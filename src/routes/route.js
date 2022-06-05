@@ -22,6 +22,47 @@ router.get('/movie/:indexNumber', function (req, res) {
            res.send(" Error Please use a valid index number")
          )
 });
+// Question -4 
+router.get('/films', function (req, res) {  
+let arr = [ {
+  "id ": 1,
+  "name": "The Shining"
+ }, {
+  "id": 2,
+  "name": "Incendies"
+ }, {
+  "id": 3,
+  "name": "Rang de Basanti"
+ }, {
+  "id": 4,
+  "name": "Finding Nemo"
+ }]
+ res.send(arr);
+});
+// Question no -5
+router.get('/films/:filmId', function (req, res) {  
+  let arr = [ {
+    "id ": 1,
+    "name": "The Shining"
+   }, {
+    "id": 2,
+    "name": "Incendies"
+   }, {
+    "id": 3,
+    "name": "Rang de Basanti"
+   }, {
+    "id": 4,
+    "name": "Finding Nemo"
+   }]
+   let x = req.params.filmId
+   let item = arr[x -1]
+   if (req.params.filmId<5){
+         res.send(item);}
+         else {
+           res.send("No movie exists with this Id")
+         }
+  });
+
 //Assignment 2 by Pritesh Sir
 router.post('/test-me4', function (req, res) {
    let player = [{
