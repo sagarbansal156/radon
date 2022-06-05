@@ -1,13 +1,18 @@
 const express = require('express');
 
 const router = express.Router();
-
+// question -1
 router.get('/test-me', function (req, res) {
-        res.send('My first ever api!')
+     let arr =['Ramayana','Mahabharata','Amrit','Sholay']
+        res.send('list of the movies that i like are'+ ' '+ arr+'.')
 });
 
-router.get('/hello', function (req, res) {  
-      res.send('My second ever api!')
+router.get('/movies/:indexNumber', function (req, res) {  
+    let arr =['Ramayana','Mahabharata','Amrit','Sholay']
+    console.log(arr[0])
+    let item = arr[req.params.indexNumber]
+     console.log(item)
+      res.send(item)
 });
 
 //Assignment 2 by Pritesh Sir
