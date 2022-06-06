@@ -17,5 +17,8 @@ router.post("/createBook", BookController.createBook)
 router.get("/getBooksData", BookController.getBooksData)
 //question no-2
 router.get("/bookList", BookController.bookList)
+// question no -3
+router.post("/getBooksInYear/:year", BookController.getBooksInYear)
+
 
 module.exports = router;

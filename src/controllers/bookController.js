@@ -85,6 +85,15 @@ const bookList = async function (req, res) {
     let allBooks = await BookModel.find().select({ bookName: 1, authorName: 1, _id: 0 },)
     res.send({ msg: allBooks })
 }
+
+// Question -3
+const getBooksInYear = async function (req, res) {
+    let x = req.params.year
+    console.log(x)
+    let allBooks = await BookModel.find({ publishedYear: x })
+    res.send({ msg: allBooks })
+}
+module.exports.getBooksInYear = getBooksInYear
 module.exports.bookList = bookList
 module.exports.createBook = createBook
 module.exports.getBooksData = getBooksData
