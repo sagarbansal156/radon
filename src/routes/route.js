@@ -18,7 +18,7 @@ const router = express.Router();
          "sports": [
          "cricket"]
          },
-         {"name": "kall0",
+         {"name": "kallo",
          "dob": "1/08/2000",
          "gender": "female",
          "city": "ghaziabad",
@@ -33,27 +33,19 @@ const router = express.Router();
     
     let newPlayer = req.body
     let newPlayersName = newPlayer.name
-    let isNameRepeated = false
-
-    //let player = players.find(p => p.name == newPlayersName)
+    
+    
 
     for(let i = 0; i < players.length; i++) {
         if(players[i].name == newPlayersName) {
-            isNameRepeated = true;
-            break;
-        }
+          res.send("This player was already added!")
+             }
+        else {
+          players.push(newPlayer)
+          res.send(players)
+      }
     }
-
-    //undefined is same as false/ a falsy value
-    if (isNameRepeated) {
-        //Player exists
-        res.send("This player was already added!")
-    } else {
-        //New entry
-        players.push(newPlayer)
-        res.send(players)
-    }
-})
+    })
   
 
 module.exports = router;
