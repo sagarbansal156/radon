@@ -18,9 +18,9 @@ router.get("/getBooksData", BookController.getBooksData)
 //question no-2
 router.get("/bookList", BookController.bookList)
 // question no -3
-router.post("/getBooksInYear/:year", BookController.getBooksInYear)
+router.post("/getBooksInYear/", BookController.getBooksInYear)
 // Question no -4
-router.get("/getParticularBooks/:userInput", BookController.getParticularBooks)
+router.get("/getParticularBooks/", BookController.getParticularBooks)
 //Question no -5
 router.get("/getXINRBooks", BookController.getXINRBooks)
 //Qestion no-6 
