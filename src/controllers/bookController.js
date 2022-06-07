@@ -44,7 +44,6 @@ const getRandomBooks = async function (req, res) {
 
 
 module.exports.createBook = createBook
-module.exports.getBooksData = getBooksData
 module.exports.bookList = bookList
 module.exports.getBooksInYear = getBooksInYear
 module.exports.getParticularBooks = getParticularBooks

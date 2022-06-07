@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
-
-
 const BookController = require("../controllers/bookController")
 // Question no-1
 router.post("/createBook", BookController.createBook)
-
 //question no-2
 router.get("/bookList", BookController.bookList)
 // question no -3
