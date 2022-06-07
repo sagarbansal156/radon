@@ -19,6 +19,10 @@ router.get("/getBooksData", BookController.getBooksData)
 router.get("/bookList", BookController.bookList)
 // question no -3
 router.post("/getBooksInYear/:year", BookController.getBooksInYear)
-
-
+// Question no -4
+router.get("/getParticularBooks/:userInput", BookController.getParticularBooks)
+//Question no -5
+router.get("/getXINRBooks", BookController.getXINRBooks)
+//Qestion no-6 
+router.get("/getRandomBooks", BookController.getRandomBooks)
 module.exports = router;
