@@ -5,7 +5,7 @@ const middleWare = require("../middleware/auth")
 
 
 
-//router.post("/users", userController.createUser)
+router.post("/users", userController.createUser)
 
 //router.post("/login", userController.loginUser)
 

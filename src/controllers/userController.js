@@ -2,13 +2,17 @@ const jwt = require("jsonwebtoken");
 const userModel = require("../models/userModel");
 
 const createUser = async function (abcd, xyz) {
+  try {
   let data = abcd.body;
   let savedData = await userModel.create(data);
-  console.log(abcd.newAtribute);
-  xyz.send({ msg: savedData });
-};
-
+  xyz.status(201).send({ msg: savedData });
+}
+catch(err){
+xyz.status(400).send({msg:err})
+}
+}
 const loginUser = async function (req, res) {
+  try {
   let userName = req.body.emailId;
   let password = req.body.password;
 
@@ -29,31 +33,34 @@ const loginUser = async function (req, res) {
   );
   res.setHeader("x-auth-token", token);
   res.send({ status: true, data: token });
-};
-
+}
+catch(err){
+  res.status(400).send({msg:err})
+ }
+}
 const getUserData = async function (req, res) {
-
+  try {
   let userId = req.params.userId;
   let userDetails = await userModel.findById(userId);
   if (!userDetails)
     return res.send({ status: false, msg: "No such user exists" });
 
   res.send({ status: true, data: userDetails });
-};
-
-const updateUser = async function (req, res) {
-
-  let userId = req.params.userId;
-  let user = await userModel.findById(userId);
-  if (!user) {
-    return res.send("No such user exists");
+}
+  catch(err){
+    res.status(400).send({msg:err})
   }
-
+}
+const updateUser = async function (req, res) {
+ try {
   let userData = req.body;
   let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData, {new:true});
   res.send({ status: true , data: updatedUser });
-};
-
+}
+catch (err){
+res.status(400).send({msg:err})
+ }
+}
 const postMessage = async function (req, res) {
   let message = req.body.message
   let token = req.headers["x-auth-token"]
